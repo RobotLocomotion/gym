@@ -16,6 +16,13 @@ register(
 )
 
 register(
+    id="PusherSlider-v0",
+    entry_point = 'gym.envs.robot_locomotion_group.drake:PusherSliderEnv',
+    max_episode_steps=200,
+    kwargs={'config': None}
+)
+
+register(
     id="SingleIntegrator-v0",
     entry_point='gym.envs.robot_locomotion_group.pymunk:SingleIntegratorEnv',
     max_episode_steps=200,

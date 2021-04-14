@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot name="pusher_peg">
+
+  <material name="Green">
+    <color rgba="0.1 1.0 0.1 1.0"/>
+  </material>
+
+  <link name="base"/>
+  <link name="slider"/>
+
+  <link name="end_effector">
+    <inertial>
+      <mass value="1" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1"  ixy="0"  ixz="0" iyy="1" iyz="0" izz="1" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.051" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/>
+      </geometry>
+      <material name="Green"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.051" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.01" length="0.1"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="xslide" type="prismatic">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <parent link="base"/>
+    <child link="slider"/>
+  </joint>
+  <joint name="yslide" type="prismatic">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <parent link="slider"/>
+    <child link="end_effector"/>
+  </joint>
+
+  <transmission name="xslide_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="xslide"/>
+    <actuator name="xslide_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <transmission name="yslide_transmission">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="yslide"/>
+    <actuator name="yslide_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+</robot>

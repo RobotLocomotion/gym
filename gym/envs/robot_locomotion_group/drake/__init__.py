@@ -1,1 +1,2 @@
+from gym.envs.robot_locomotion_group.drake.pusher_slider.pusher_slider_env import PusherSliderEnv
 from gym.envs.robot_locomotion_group.drake.shoe.shoe_env import ShoeEnv

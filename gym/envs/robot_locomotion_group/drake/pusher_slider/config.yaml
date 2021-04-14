@@ -1,0 +1,27 @@
+model_name: "sugar_box"
+table:
+  size: [2, 2, 0.1]
+  color: [0.5, 0.5, 0.5, 1.] # RGBA
+  coulomb_friction: [0.9, 0.8] # static, dynamic friction
+mbp_dt: 0.001 # dt for multibody plant
+step_dt: 0.1 # 10Hz
+visualization: "drake_viz"
+rgbd_sensors:
+  enabled: True
+  sensor_list:
+    camera_1_top_down: # top down view
+      width: 640
+      height: 480
+      fov_y: 0.7051130178057091 # 40.4 degrees, from d415 specs https://www.intelrealsense.com/stereo-depth-modules-and-processors/
+      z_near: 0.01 # should probably just leave these so it's perfect
+      z_far: 10.0 # if they are -1 then use defaults
+      pos: [0.        , 0.        , 1.2]
+      quat: [ 0.00725556, -0.70699354,  0.70715023, -0.00678551]
+    camera_2_top_down_rotated: # top down view
+      width: 640
+      height: 480
+      fov_y: 0.7051130178057091 # 40.4 degrees, from d415 specs https://www.intelrealsense.com/stereo-depth-modules-and-processors/
+      z_near: 0.01 # should probably just leave these so it's perfect
+      z_far: 10.0 # if they are -1 then use defaults
+      pos: [0.        , 0.        , 1.2]
+      quat: [-2.90391680e-04,  9.99942179e-01,  4.11730214e-03,  9.92985244e-03]

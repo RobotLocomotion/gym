@@ -41,6 +41,10 @@ class DrakeSimDiagram(Diagram):
         return self._sg
 
     @property
+    def builder(self):
+        return self._builder
+
+    @property
     def finalize_functions(self):
         return self._finalize_functions
 
